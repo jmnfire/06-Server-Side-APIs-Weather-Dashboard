@@ -1,0 +1,18 @@
+.custom-card-header {
+    color: white;
+    background-color: black;
+}
+
+input {
+    width: auto;
+    height: 50px;
+}
+
+.custom-button {
+    background-color: blue;
+}
+
+.card {
+    width: 100%;
+    background-color: #ececec;
+}
