@@ -16,3 +16,16 @@ input {
     width: 100%;
     background-color: #ececec;
 }
+
+.list-group {
+    font-size: 25px;
+}
+
+.city-name {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 40px;
+    padding-top: 5%;
+}

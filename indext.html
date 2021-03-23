@@ -14,49 +14,53 @@
 
 <body>
 
-<main>
-    <div class="jumbotron bg-dark text-white text-center">
-        <div class="container">
-            <h1 class="display-1 ">Weather Dashboard</h1>
-            <i class="fas fa-cloud"></i> <i class="fas fa-wind"></i> <i class="fas fa-sun"></i> <i
-                class="fas fa-cloud-sun-rain"></i> <i class="fas fa-cloud-sun"></i> <i class="fas fa-snowflake"></i>
+    <main>
+        <div class="jumbotron bg-dark text-white text-center">
+            <div class="container">
+                <h1 class="display-1 ">Weather Dashboard</h1>
+                <i class="fas fa-cloud"></i> <i class="fas fa-wind"></i> <i class="fas fa-sun"></i> <i
+                    class="fas fa-cloud-sun-rain"></i> <i class="fas fa-cloud-sun"></i> <i class="fas fa-snowflake"></i>
+            </div>
         </div>
-    </div>
 
-    <div class="container-fluid">
-        <div class="col-12 col-md-3 p-2">
-            <div class="card">
-                <h3 class="card-header text-uppercase custom-card-header">Search for a City:</h3>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" id='search-value' placeholder="City Name">
-                    <button class="btn btn-outline-secondary custom-button" type="button" id="search-button"><i
-                            class="fa fa-search" aria-hidden="true"></i></button>
-                    <div class="container" id='history'>
+        <section class="container-fluid">
+            <div class='row'>
+            <div class="col-12 col-md-4 col-xl-3">
+                <div class="card">
+                    <h3 class="card-header text-uppercase custom-card-header">Search for a City:</h3>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id='search-value' placeholder="City Name">
+                        <button class="btn btn-outline-secondary custom-button" type="button" id="search-button"><i
+                                class="fa fa-search" aria-hidden="true"></i></button>
 
                         <div class="container col-12 col-md-12 text-center" id='history'>
-                            <p class="card">
-                                List of cities
-                            </p>
+                                <p class="card-body">
+                                    List of cities
+                                </p>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            <!-- current weather  -->
+            <div class="col-12 col-md-8 col-xl-9" id='weather'>
+                        <div id="weather-container city-name" class="list-group"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container col-12 col-md-9" id='weather'>
-        <div class = "row border selected-city" id = "current-forecast">
-            <div class = "col-12">
-                <h2 id="searched-city"></h2>
-                <div id = "current-weather-container" class = "list-group"></div>
-            </div>  
-        </div> 
-    </div>
+        <div class = "row border" id='five-day'>
+                <h2 class="col-12" id='five' ></h2>
+                <div class = 'd-flex' id='five-day-container'></div>
 
 
+                </div>
+
+            </div>
+
+        </div>
 
 
-
+        </section>
 
 
 
@@ -65,7 +69,9 @@
 
 
 
-</main>
+
+
+    </main>
 
     <script src='./assets/js/script.js'></script>
 </body>
