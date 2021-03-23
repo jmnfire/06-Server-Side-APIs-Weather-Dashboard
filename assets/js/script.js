@@ -13,7 +13,11 @@ function getApi() {
             return response.json();
         })
         .then(function (data) {
-            // console.log(data);
+            console.log(data);
+            var currentDate = document.createElement("span")
+            currentDate.textContent=" (" + moment(weather.dt).format("MMM D, YYYY") + ") ";
+            weatherContainer.appendChild(currentDate);
+
             var temp = document.createElement('span');
             temp.textContent = "Temperature: " + data.main.temp + " F";
             temp.classList = "list-group"
@@ -38,9 +42,9 @@ function getApi() {
             searchNameEl.textContent = data.name;
             historyContainer.append(searchNameEl);
             localStorage.setItem('cityHistory', data.name);
-
+    
             var weatherIcon = document.createElement("img")
-            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`);
+            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
             cityNameEL.appendChild(weatherIcon);
 
         });

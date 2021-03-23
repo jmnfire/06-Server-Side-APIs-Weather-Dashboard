@@ -27,5 +27,10 @@ input {
 
 h3 {
     font-size: 40px;
-    padding-top: 5%;
+    /* padding-top: 5%; */
+}
+
+.card-body {
+    font-size: 25px;
+    padding-top: 2%;
 }
