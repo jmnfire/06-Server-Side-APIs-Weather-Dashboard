@@ -4,8 +4,6 @@ var searchButton = document.getElementById('search-button');
 var APIkey = '5da23cce4a85954e3d9fd6f2552f4e93';
 
 
-
-
 function getApi() {
     var searchValue = document.getElementById('search-value').value;
     var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${APIkey}&units=imperial`;
@@ -41,16 +39,16 @@ function getApi() {
             historyContainer.append(searchNameEl);
             localStorage.setItem('cityHistory', data.name);
 
-
+            var weatherIcon = document.createElement("img")
+            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`);
+            cityNameEL.appendChild(weatherIcon);
 
         });
 
 }
 
 function getUVIndex(lat, lon) {
-    var lon = document.getElementById('uv-value').value;
-    var lat = document.getElementById('uv-value').value;
-    var queryURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${APIKey}&lat=${lat}&lon=${lon}`
+    var queryURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${APIkey}&lat=${lat}&lon=${lon}`
     fetch(queryURL)
         .then(function (response) {
             return response.json();
@@ -58,8 +56,9 @@ function getUVIndex(lat, lon) {
         .then(function (data) {
             console.log(data)
             var UVIndex = document.createElement('span');
-            UVIndex.textContent = "UV Index: " + data.coord.UVIndex;
-            UVIdex.classList = "list-group"
+            UVIndex.textContent = "UV Index: " + data.value;
+            console.log(data.value)
+            UVIndex.classList = "list-group"
 
             weatherContainer.appendChild(UVIndex);
 
