@@ -14,9 +14,8 @@ function getApi() {
         })
         .then(function (data) {
             console.log(data);
-            var currentDate = document.createElement("span")
-            currentDate.textContent=" (" + moment(weather.dt).format("MMM D, YYYY") + ") ";
-            weatherContainer.appendChild(currentDate);
+
+            $('#search-value').val('');
 
             var temp = document.createElement('span');
             temp.textContent = "Temperature: " + data.main.temp + " F";
@@ -34,6 +33,8 @@ function getApi() {
             var lat = data.coord.lat;
             getUVIndex(lat, lon)
 
+            weatherContainer.innerHTML = '';
+
             weatherContainer.append(cityNameEL, temp, humidity, windSpeed);
             clearInterval(cityNameEL.name);
             localStorage.setItem('cityHistory', data.name);
@@ -46,6 +47,10 @@ function getApi() {
             var weatherIcon = document.createElement("img")
             weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
             cityNameEL.appendChild(weatherIcon);
+
+            var currentDate = document.createElement("span")
+            currentDate.textContent=" (" + moment(data.value).format(" MMM D, YYYY ") + ") ";
+            cityNameEL.appendChild(currentDate);
 
         });
 
@@ -70,3 +75,7 @@ function getUVIndex(lat, lon) {
 }
 
 searchButton.addEventListener('click', getApi);
+
+// window.addEventListener("load",function() {
+//     window.localStorage.getItem("cityHistory", data.name)
+//     })
