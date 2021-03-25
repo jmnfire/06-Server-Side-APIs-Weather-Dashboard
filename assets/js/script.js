@@ -80,18 +80,27 @@ searchButton.addEventListener('click', getApi);
 
 
 
-function getFiveDay() {
+function getFiveDay(event) {
 
-    var fiveDay = document.getElementById('five-day')
-    var fiveUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${fiveDay}&appid=${APIkey}`
+    var searchValue = document.getElementById('search-value').value;
+    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&units=imperial&appid=${APIkey}`
+    console.log(apiUrl)
+    console.log(searchValue)
     
     event.preventDefault();
-    fetch(fiveUrl)
+    fetch(apiUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data);
+
+            var temp = document.createElement('span');
+            temp.textContent = "Temperature: " + data.main.temp + " F";
+            temp.classList = "list-group"
+            console.log(tempfive);
+
+            fiveDayContainer.append(temp)
         });
 }
 
