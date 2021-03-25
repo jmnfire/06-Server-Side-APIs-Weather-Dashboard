@@ -97,10 +97,6 @@ function getFiveDay(event) {
 
             var currentDate = document.createElement("span")
             currentDate.textContent=" (" + moment(data.value).format( " MMM D, YYYY " ) + ") ";
-
-            // var citNameEL = document.createElement('h2');
-            // citNameEL.textContent = data.city.name;
-            // console.log(citNameEL);
             
             var temp = document.createElement('span');
             temp.textContent = "Temperature: " + data.list[0].main.temp + ' F';
@@ -116,9 +112,10 @@ function getFiveDay(event) {
             fiveDayContainer.append(currentDate, temp, humidity)
 
             var weatherIcon = document.createElement("img")
-            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[0].weather.icon}@2x.png`);
+            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`);
             console.log(weatherIcon)
             currentDate.appendChild(weatherIcon);
+            
         });
 }
 
