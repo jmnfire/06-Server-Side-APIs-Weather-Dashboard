@@ -1,6 +1,8 @@
 var weatherContainer = document.getElementById('weather');
 var historyContainer = document.getElementById('history')
 var searchButton = document.getElementById('search-button');
+var fiveDayContainer = document.getElementById('five-day-container')
+
 var APIkey = '5da23cce4a85954e3d9fd6f2552f4e93';
 
 
@@ -75,6 +77,25 @@ function getUVIndex(lat, lon) {
 }
 
 searchButton.addEventListener('click', getApi);
+
+
+
+function getFiveDay() {
+
+    var fiveDay = document.getElementById('five-day')
+    var fiveUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${fiveDay}&appid=${APIkey}`
+    
+    event.preventDefault();
+    fetch(fiveUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+        });
+}
+
+searchButton.addEventListener('click', getFiveDay)
 
 // window.addEventListener("load",function() {
 //     window.localStorage.getItem("cityHistory", data.name)
