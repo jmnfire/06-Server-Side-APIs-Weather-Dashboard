@@ -25,15 +25,15 @@
 
         <section class="container-fluid">
             <div class='row'>
-            <div class="col-12 col-md-4 col-xl-3">
-                <div class="card">
-                    <h3 class="card-header text-uppercase custom-card-header">City Search:</h3>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id='search-value' placeholder="City Name">
-                        <button class="btn btn-outline-secondary custom-button" type="button" id="search-button"><i
-                                class="fa fa-search" aria-hidden="true"></i></button>
+                <div class="col-12 col-md-4 col-xl-3">
+                    <div class="card">
+                        <h3 class="card-header text-uppercase custom-card-header">City Search:</h3>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id='search-value' placeholder="City Name">
+                            <button class="btn btn-outline-secondary custom-button" type="button" id="search-button"><i
+                                    class="fa fa-search" aria-hidden="true"></i></button>
 
-                        <div class="container col-12 col-md-12 text-center" id='history'>
+                            <div class="container col-12 col-md-12 text-center" id='history'>
                                 <p class="card-body">
 
                                 </p>
@@ -41,24 +41,31 @@
                         </div>
                     </div>
                 </div>
-            <!-- current weather  -->
-            <div class="col-12 col-md-8 col-xl-9" id='weather'>
-                        <div id="weather-container city-name" class="list-group"></div>
+                <!-- current weather  -->
+                <div class="col-12 col-md-8 col-xl-9" id='weather'>
+                    <div id="weather-container city-name" class="list-group"></div>
+                </div>
+            </div>
+            </div>
+            <div class="col-12 col-md-8 col-xl-9" id='five-day'>
+                <div class="col-12 col-md-8 col-xl-9" id='five-day'>
+                    <div class="col-12 col-md-8 col-xl-9" id='five-day'>
+                        <div class="forecast" style="width: 18rem;">
+                            <div class="card-body">
+                                <div id="five-day-container" class="list-group">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text"></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class = "row border"> 
-        <input type='text' id='search-value'>
-                <h2 class="col-12" id='city'>5 Day Forecast:</h2>
-                <div class = 'd-flex' id='five-day-container'></div>
+                <div class='list-group' id='five-day-container'>
 
-            </div>
                 </div>
-
             </div>
 
-        </div>
+
 
 
         </section>

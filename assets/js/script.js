@@ -68,7 +68,7 @@ function getUVIndex(lat, lon) {
             console.log(data)
             var UVIndex = document.createElement('span');
             UVIndex.textContent = "UV Index: " + data.value;
-            console.log(data.value)
+            // console.log(data.value)
             UVIndex.classList = "list-group"
 
             weatherContainer.appendChild(UVIndex);
@@ -95,12 +95,30 @@ function getFiveDay(event) {
         .then(function (data) {
             console.log(data);
 
-            var temp = document.createElement('span');
-            temp.textContent = "Temperature: " + data.main.temp + " F";
-            temp.classList = "list-group"
-            console.log(tempfive);
+            var currentDate = document.createElement("span")
+            currentDate.textContent=" (" + moment(data.value).format( " MMM D, YYYY " ) + ") ";
 
-            fiveDayContainer.append(temp)
+            // var citNameEL = document.createElement('h2');
+            // citNameEL.textContent = data.city.name;
+            // console.log(citNameEL);
+            
+            var temp = document.createElement('span');
+            temp.textContent = "Temperature: " + data.list[0].main.temp + ' F';
+            temp.classList = "list-group"
+            console.log(temp);
+
+            var humidity = document.createElement('span');
+            humidity.textContent = "Humidity: " + data.list[0].main.humidity + ' %';
+            humidity.classList = "list-group"
+
+            fiveDayContainer.innerHTML = '';
+
+            fiveDayContainer.append(currentDate, temp, humidity)
+
+            var weatherIcon = document.createElement("img")
+            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[0].weather.icon}@2x.png`);
+            console.log(weatherIcon)
+            currentDate.appendChild(weatherIcon);
         });
 }
 
