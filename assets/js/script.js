@@ -75,13 +75,16 @@ function getUVIndex(lat, lon) {
             var UVIndex = document.createElement('span');
             uvi = parseFloat(data.value);
             UVIndex.textContent = "UV Index: " + data.value
-            UVIndex.style.width = "300px";
+            UVIndex.style.width = "200px";
 
-            if (uvi < 3) {
+            if (uvi < 2) {
                 UVIndex.style.backgroundColor = "green";
-            } else if (uvi < 6) {
+            } else if (uvi < 5) {
                 UVIndex.style.backgroundColor = "yellow";
-                
+            } else if (uvi < 6) {
+                UVIndex.style.backgroundColor = "orange";
+            } else if (uvi > 8) {
+                UVIndex.style.background = "red"
             } else {
                 UVIndex.style.backgroundColor = "violet";
 
@@ -112,7 +115,7 @@ function getFiveDay(searchValue) {
             for (let i = 0; i < data.list.length; i += 8) {
                 console.log(data.list[i])
                 var div = document.createElement("div");
-                //div.style.display = "inline-block";
+                div.style.display = "inline-block";
                 var currentDate = document.createElement("span")
                 currentDate.textContent = moment(data.list[i].dt_txt).format('MMM D, YYYY ');
                 div.appendChild(currentDate)
