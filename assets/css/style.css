@@ -25,9 +25,17 @@ input {
     font-size: 50px;
 }
 
-h3 {
-    font-size: 40px;
+h2 {
+    font-size: 25px;
     /* padding-top: 5%; */
+}
+
+h3 {
+    font-size: 45px;
+}
+
+h4 {
+    font-size: 35px;
 }
 
 .card-body {
@@ -35,27 +43,27 @@ h3 {
     padding-top: 2%;
 }
 
-.h2 {
-    background-color: black;
-    border: black;
-}
-
-.forecast {
-    background-color: rgb(0, 110, 255);
-    color: white;
-    display: inline-block;
-}
-
 #five-day-container {
-    display: inline-block;
-    background-color: rgb(0, 110, 255);
     padding-right: 2%;
     padding-left: 2%;
     padding-top: 2%;
+}
+
+.background-blue {
+    background-color: rgb(0, 110, 255);
+    margin: 20px;
+    border-radius: 5%;
+    height: 350px;
+    padding-top: 5%;
+}
+
+.row-border {
+    padding-top: 2%;
+    text-align: center;
 
 }
 
-
 button {
-    align-content: center;
+    border-radius: 10%;
+
 }

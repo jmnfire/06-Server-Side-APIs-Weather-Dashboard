@@ -46,15 +46,15 @@ function getApi(searchValue) {
             clearInterval(cityNameEL.name);
             localStorage.setItem('cityHistory', data.name);
 
+            var weatherIcon = document.createElement("img")
+            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+            cityNameEL.appendChild(weatherIcon);
+
             var searchNameEl = document.createElement('button');
             searchNameEl.style.display = "block";
             searchNameEl.textContent = data.name;
             historyContainer.append(searchNameEl);
             localStorage.setItem('cityHistory', data.name);
-
-            var weatherIcon = document.createElement("img")
-            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
-            cityNameEL.appendChild(weatherIcon);
 
             var currentDate = document.createElement("span")
             currentDate.textContent = " (" + moment(data.value).format(" MMM D, YYYY ") + ") ";
@@ -99,6 +99,7 @@ function getUVIndex(lat, lon) {
 
 searchButton.addEventListener('click', searchAPI);
 
+
 function getFiveDay(searchValue) {
 
     var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&units=imperial&appid=${APIkey}`
@@ -110,12 +111,13 @@ function getFiveDay(searchValue) {
             return response.json();
         })
         .then(function (data) {
-
+            console.log(data)
             fiveDayContainer.innerHTML = '';
             for (let i = 0; i < data.list.length; i += 8) {
                 console.log(data.list[i])
                 var div = document.createElement("div");
                 div.style.display = "inline-block";
+                div.setAttribute('class', 'col-md-2 background-blue col-sm-6')
                 var currentDate = document.createElement("span")
                 currentDate.textContent = moment(data.list[i].dt_txt).format('MMM D, YYYY ');
                 div.appendChild(currentDate)
