@@ -58,7 +58,7 @@ function getApi(searchValue) {
             localStorage.setItem('cityHistory', data.name);
 
             var currentDate = document.createElement("span")
-            currentDate.textContent = " (" + moment(data.value).format(" MMM D, YYYY ") + ") ";
+            currentDate.textContent = moment(data.value).format(" dddd - MMM D, YYYY ");
             cityNameEL.appendChild(currentDate);
 
         });
@@ -120,7 +120,7 @@ function getFiveDay(searchValue) {
                 div.style.display = "inline-block";
                 div.setAttribute('class', 'col-md-2 background-blue col-sm-6')
                 var currentDate = document.createElement("span")
-                currentDate.textContent = moment(data.list[i].dt_txt).format('MMM D, YYYY ');
+                currentDate.textContent = moment(data.list[i].dt_txt).format('dddd MMM D, YYYY ');
                 div.appendChild(currentDate)
 
                 var temp = document.createElement('span');
@@ -182,7 +182,7 @@ function historySearch(citySearch) {
             cityNameEL.appendChild(weatherIcon);
 
             var currentDate = document.createElement("span")
-            currentDate.textContent = " (" + moment(data.value).format(" MMM D, YYYY ") + ") ";
+            currentDate.textContent = moment(data.value).format(" dddd - MMM D, YYYY ");
             cityNameEL.appendChild(currentDate);
 
         });
