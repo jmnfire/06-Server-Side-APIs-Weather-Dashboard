@@ -53,6 +53,7 @@ function getApi(searchValue) {
             var searchNameEl = document.createElement('button');
             searchNameEl.style.display = "block";
             searchNameEl.textContent = data.name;
+            searchNameEl.classList.add('history-button');
             historyContainer.append(searchNameEl);
             localStorage.setItem('cityHistory', data.name);
 
@@ -142,11 +143,56 @@ function getFiveDay(searchValue) {
         });
 }
 
+function historySearch(citySearch) {
+    var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${APIkey}&units=imperial`;
+
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+
+            $('#search-value').val('');
+
+            var temp = document.createElement('span');
+            temp.textContent = "Temperature: " + data.main.temp + " F";
+            temp.classList = "list-group"
+            var cityNameEL = document.createElement('h3');
+            cityNameEL.textContent = data.name;
+            var humidity = document.createElement('span');
+            humidity.textContent = "Humidity: " + data.main.humidity + " %";
+            humidity.classList = "list-group"
+            var windSpeed = document.createElement('span');
+            windSpeed.textContent = "Wind Speed: " + data.wind.speed + " MPH";
+            windSpeed.classList = "list-group"
+
+            var lon = data.coord.lon;
+            var lat = data.coord.lat;
+            getUVIndex(lat, lon)
+
+            weatherContainer.innerHTML = '';
+
+            weatherContainer.append(cityNameEL, temp, humidity, windSpeed);
+            clearInterval(cityNameEL.name);
+            localStorage.setItem('cityHistory', data.name);
+
+            var weatherIcon = document.createElement("img")
+            weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+            cityNameEL.appendChild(weatherIcon);
+
+            var currentDate = document.createElement("span")
+            currentDate.textContent = " (" + moment(data.value).format(" MMM D, YYYY ") + ") ";
+            cityNameEL.appendChild(currentDate);
+
+        });
+
+}
+
 historyContainer.addEventListener("click", function (event) {
     console.log(event.target.textContent);
     var buttonText = event.target.textContent;
 
-    getApi(buttonText);
-    getFiveDay(buttonText)
+    historySearch(buttonText);
 
 })
