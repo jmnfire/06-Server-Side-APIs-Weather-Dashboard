@@ -32,7 +32,7 @@ NO installation required you can view the page. If you want to look at my code, 
 
 ## Usage
 
-![screenshot](assets/image/screencapture-file-Users-JovanNixon-Desktop-Homework-06-Server-Side-APIs-Weather-Dashboard-indext-html-2021-03-25-23_28_44.png)
+![screenshot](assets/image/1screencapture-file-Users-JovanNixon-Desktop-Homework-06-Server-Side-APIs-Weather-Dashboard-index-html-2021-03-27-15_41_12.png)
 
 
 ## License 
